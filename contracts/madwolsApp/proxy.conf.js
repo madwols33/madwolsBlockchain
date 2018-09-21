@@ -24,7 +24,7 @@ function getTarget() {
         const restServerURL = process.env.REST_SERVER_URL;
         return restServerURL;
     }
-    return 'http://localhost:3000';
+    return 'https://composer-rest-server-madwolscoffetracker.mybluemix.net';
 }
 
 const target = getTarget();
