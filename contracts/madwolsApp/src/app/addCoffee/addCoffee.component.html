@@ -1,0 +1,267 @@
+<!--
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<div class="modal fade" id="addTransactionModal" tabindex="-1" role="dialog" aria-labelledby="addTransactionModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addTransactionModalLabel">Create Transaction</h4>
+        <p class="modal-intro">Enter the required values below.</p>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+
+            
+              <label for="size">size</label>
+              <div class="checkbox">
+                
+                  <label>
+                    <input
+                      
+                        formControlName="size"
+                      
+                      name="size"
+                      value="SMALL"
+                      type="radio"
+                      
+                    />
+                    SMALL
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="size"
+                      
+                      name="size"
+                      value="MEDIUM"
+                      type="radio"
+                      
+                    />
+                    MEDIUM
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="size"
+                      
+                      name="size"
+                      value="LARGE"
+                      type="radio"
+                      
+                    />
+                    LARGE
+                  </label>
+                
+              </div>
+            
+          
+
+            
+              <label for="roast">roast</label>
+              <div class="checkbox">
+                
+                  <label>
+                    <input
+                      
+                        formControlName="roast"
+                      
+                      name="roast"
+                      value="LIGHT"
+                      type="radio"
+                      
+                    />
+                    LIGHT
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="roast"
+                      
+                      name="roast"
+                      value="MEDIUM"
+                      type="radio"
+                      
+                    />
+                    MEDIUM
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="roast"
+                      
+                      name="roast"
+                      value="DARK"
+                      type="radio"
+                      
+                    />
+                    DARK
+                  </label>
+                
+              </div>
+            
+          
+
+            
+              <label for="batchState">batchState</label>
+              <div class="checkbox">
+                
+                  <label>
+                    <input
+                      
+                        formControlName="batchState"
+                      
+                      name="batchState"
+                      value="READY_FOR_DISTRIBUTION"
+                      type="radio"
+                      
+                    />
+                    READY_FOR_DISTRIBUTION
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="batchState"
+                      
+                      name="batchState"
+                      value="ORGANIC_CERTIFICATION_APPROVED"
+                      type="radio"
+                      
+                    />
+                    ORGANIC_CERTIFICATION_APPROVED
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="batchState"
+                      
+                      name="batchState"
+                      value="REGULATION_TEST_PASSED"
+                      type="radio"
+                      
+                    />
+                    REGULATION_TEST_PASSED
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="batchState"
+                      
+                      name="batchState"
+                      value="IMPORTED"
+                      type="radio"
+                      
+                    />
+                    IMPORTED
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="batchState"
+                      
+                      name="batchState"
+                      value="READY_FOR_SALE"
+                      type="radio"
+                      
+                    />
+                    READY_FOR_SALE
+                  </label>
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="grower">grower</label>
+                
+                    <textarea formControlName="grower" class="form-control" rows="3"></textarea>
+                
+              </div>
+            
+          
+
+            
+          
+
+            
+          
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button (click)="addTransaction(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container col-md-6">
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        <strong>Error:</strong> {{errorMessage}}
+    </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <h1 class="transaction-title" id='transactionName'>addCoffee</h1>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+          When invoked, this transaction will have the following attributes:
+          <br>
+          <ul>
+            
+              
+                <li><span class="attribute"><b>size</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>roast</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>batchState</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>grower</b></span></li>
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <button (click)="resetForm();" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTransactionModal">Invoke</button>
+    </div>
+  </div>
+</div>
+

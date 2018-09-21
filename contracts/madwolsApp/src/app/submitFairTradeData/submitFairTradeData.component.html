@@ -1,0 +1,228 @@
+<!--
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<div class="modal fade" id="addTransactionModal" tabindex="-1" role="dialog" aria-labelledby="addTransactionModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addTransactionModalLabel">Create Transaction</h4>
+        <p class="modal-intro">Enter the required values below.</p>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+
+            
+              <div class="form-group text-left">
+                <label for="reportName">reportName</label>
+                
+                  <input formControlName="reportName" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="organizationDescription">organizationDescription</label>
+                
+                  <input formControlName="organizationDescription" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="reportYear">reportYear</label>
+                
+                  <input formControlName="reportYear" type="number" step='any' class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="fairtradePremiumInvested">fairtradePremiumInvested</label>
+                
+                  <input formControlName="fairtradePremiumInvested" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="investmentTitle1">investmentTitle1</label>
+                
+                  <input formControlName="investmentTitle1" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="investmentAmount1">investmentAmount1</label>
+                
+                  <input formControlName="investmentAmount1" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="investmentTitle2">investmentTitle2</label>
+                
+                  <input formControlName="investmentTitle2" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="investmentAmount2">investmentAmount2</label>
+                
+                  <input formControlName="investmentAmount2" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="investmentTitle3">investmentTitle3</label>
+                
+                  <input formControlName="investmentTitle3" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="investmentAmount3">investmentAmount3</label>
+                
+                  <input formControlName="investmentAmount3" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="batchId">batchId</label>
+                
+                  <input formControlName="batchId" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+          
+
+            
+          
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button (click)="addTransaction(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container col-md-6">
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        <strong>Error:</strong> {{errorMessage}}
+    </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <h1 class="transaction-title" id='transactionName'>submitFairTradeData</h1>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+          When invoked, this transaction will have the following attributes:
+          <br>
+          <ul>
+            
+              
+                <li><span class="attribute"><b>reportName</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>organizationDescription</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>reportYear</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>fairtradePremiumInvested</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>investmentTitle1</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>investmentAmount1</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>investmentTitle2</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>investmentAmount2</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>investmentTitle3</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>investmentAmount3</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>batchId</b></span></li>
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <button (click)="resetForm();" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTransactionModal">Invoke</button>
+    </div>
+  </div>
+</div>
+
